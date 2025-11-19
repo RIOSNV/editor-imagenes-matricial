@@ -447,7 +447,10 @@ function voltearHorizontal(matriz) {
   
   // Pista: Puedes usar .reverse() en cada fila
   // o construir manualmente invirtiendo el orden
-  
+  const resultado = copiarMatriz(matriz);
+for (let i = 0; i < resultado.length; i++) resultado[i].reverse();
+return resultado;
+
   return []; // REEMPLAZAR
 }
 
