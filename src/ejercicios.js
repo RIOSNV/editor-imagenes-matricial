@@ -359,7 +359,23 @@ return resultado;
  */
 function invertirColores(matriz) {
   // TODO: Implementar inversión de colores
-  
+  const resultado = copiarMatriz(matriz);
+
+
+for (let i = 0; i < resultado.length; i++) {
+for (let j = 0; j < resultado[i].length; j++) {
+const pixel = matriz[i][j];
+resultado[i][j] = {
+r: 255 - pixel.r,
+g: 255 - pixel.g,
+b: 255 - pixel.b,
+a: pixel.a
+};
+}
+}
+
+
+return resultado;
   return []; // REEMPLAZAR
 }
 
