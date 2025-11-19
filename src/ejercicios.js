@@ -1,8 +1,8 @@
 // ============================================
 // EDITOR DE IMÁGENES CON ÁLGEBRA MATRICIAL
 // ============================================
-// Nombre del estudiante: _________________
-// Fecha: _________________
+// Nombre del estudiante: Rodrigo Rios Novelo
+// Fecha: __________18/11/25
 // Grupo: _________________
 
 const { PNG } = require('pngjs');
@@ -87,6 +87,30 @@ function imagenAMatriz(rutaImagen) {
   
   // 6. Retornar la matriz
   // return matriz;
+  const buffer = fs.readFileSync(rutaImagen);
+const png = PNG.sync.read(buffer);
+
+
+const matriz = [];
+
+
+for (let y = 0; y < png.height; y++) {
+const fila = [];
+for (let x = 0; x < png.width; x++) {
+const idx = (png.width * y + x) * 4;
+fila.push({
+r: png.data[idx],
+g: png.data[idx + 1],
+b: png.data[idx + 2],
+a: png.data[idx + 3]
+});
+}
+matriz.push(fila);
+}
+
+
+return matriz;
+
   
   return []; // REEMPLAZAR CON TU CÓDIGO
 }
